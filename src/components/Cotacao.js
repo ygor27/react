@@ -2,30 +2,59 @@ import React, { Component } from "react";
 
 import './Cotacao.css';
 import Button from "./ui/Button";
+import { validate } from "../helpers/validate";
+import { empresaService } from "../services/Empresa";
+import icone from '../assets/images/bar-chart.svg';
 
 class Cotacao extends Component {
 
 	checkCNPJ = () => {
-		window.alert('alert')
-	}		
+        if(validate.checkCNPJ(this.state.cnpj)) {
+		  this.setState({cnpjValid: true});
+          empresaService.getByCNPJ(this.state.cnpj).catch(error => {
+            console.log(error.response)
+          })
+        } else {
+            
+        }
+	}
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          cnpj: '',
+          cnpjValid: false
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(event) {
+        this.setState({cnpj: event.target.value});
+    }    
+
   render() {
     return (
-      <div>
+      <div className="wrapper cotacao">
     	<header className="cotacao-info">
-    		<span className="icone"></span>
-    		<h5>Nova Cotacao</h5>
-    		<p>#4422</p>
-    		<img src="" />
+    		<img src={icone} className="icone-md cotacao-info-icon" alt="icone grafico" />
+    		<div className="cotacao-info-text">
+                <h5 className="text-white m-0">Nova Cotacao</h5>
+        		<p className="text-white m-0"><small>#4422</small></p>
+            </div>
+            <div className="cotacao-info-user">
+    		  <img src="https://randomuser.me/api/portraits/thumb/men/65.jpg"  />
+            </div>
     	</header>
     	<div className="step">
     		<span className="step-number">1</span>
-    		<h6>Buscar por CNPJ ou empresa</h6>
+    		<h4 className="step-title">Buscar por CNPJ ou empresa</h4>
     	</div>
         <div className="input-wrapper">
-        	<label>CNPJ/Empresa</label>
-        	<input type="text" onBlur={this.checkCNPJ} />
+        	<label className="input-wrapper">CNPJ/Empresa</label>
+        	<input type="text" className={this.state.cnpjValid && this.state.cnpj ? 'valido' : ''} value={this.state.cnpj} onBlur={this.checkCNPJ} onChange={this.handleChange} />
         </div>
-        <Button value="Texto" onClick={this.handleClick} />
+        <div className="page-action">
+            <Button value="Texto" style="btn-primary" onClick={this.handleClick} />
+        </div>
       </div>
     );
   }

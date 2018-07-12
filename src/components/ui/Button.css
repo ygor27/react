@@ -1,19 +1,47 @@
 
 .btn {
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 2rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  background: #FFF;
-  font-weight: bold;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    display: block;
+    position: relative;
+    font-weight: 400;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 1.5rem 4rem 1.5rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background ease-out .3s
+}
+.btn::after {
+    content: url('../../assets/images/right-arrow.svg');
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    margin-top: -10px;
+    fill: red;
+    display: block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+}
+
+.btn-default {
+    background: #FFF;
+    color: #9269f1
+}
+.btn-default:hover {
+    background: #d2c7df
+}
+.btn-primary {
+    background: #32cccc;
+    color: #fff;
+}
+.btn-primary::after {
+    content: url('../../assets/images/right-arrow-inverse.svg');
 }

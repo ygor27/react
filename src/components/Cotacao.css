@@ -1,3 +1,75 @@
-body {
-  background: #f2f6f8
+.cotacao {
+	background: #f2f6f8
+}
+.cotacao-info {
+	background: linear-gradient(to right, #8e83ee, #a768f4);
+	padding: 1rem;
+	overflow: hidden;
+}
+.cotacao-info-text {
+	float: left;
+	margin-left: 20px;
+}
+.cotacao-info-icon {
+	float: left
+}
+.cotacao-info-user {
+	width: 25px;
+	height: 25px;
+	float: right;
+	border-radius: 50%;
+	overflow: hidden;
+	display: inline-block;	
+}
+.cotacao-info-user img {
+	max-width: 100%
+}
+.step {
+	padding: 1rem;
+	overflow: hidden;
+}
+.step-number {
+	display: block;
+	width: 13px;
+	height: 13px;
+	border: 2px solid #a863f4; 
+	padding: 5px;
+	text-align: center;
+	font-size: .8rem;
+	color: #a863f4;
+	float: left
+}
+.step-title {
+	float: left;
+	margin: 5px 20px
+}
+
+.input-wrapper {
+	position: relative;
+}
+.input-wrapper label {
+	font-size: .7rem;
+	color: #9ca5ac;
+	position: absolute;
+	top: .5rem;
+	left: 1.5rem	
+}
+.input-wrapper input {
+	border: none;
+	width: calc(100% - 2rem);
+	display: block;
+	background: #FFF;
+	padding: 1.5rem 1rem;
+	font-size: 1.2rem	
+}
+.input-wrapper input:focus {
+    outline: 0;
+    background: #c5c9cb
+}
+.page-action {
+	position: absolute;
+	padding: 1.5rem;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Button from "./ui/Button";
 import './Home.css';
-
+import icone from '../assets/images/bar-chart.svg';
  
 class Home extends Component {
 	handleClick = () => {
@@ -11,8 +11,12 @@ class Home extends Component {
 	render() {
 		return (
 		  <div className="wrapper home">
-		    <h2>Cotação de Seguros</h2>
-		    <Button value="Texto" onClick={this.handleClick} />
+		  	<div className="home-instructions">
+			  	<img src={icone} className="icone-md" alt="icone grafico" />
+			    <h2 className="text-white">Cotação de Seguros</h2>
+			    <p className="text-white">Solução inovadora da líder de mercado</p>
+			    <Button value="Iniciar" style="btn-default" onClick={this.handleClick} />
+		  	</div>
 		  </div>
 		);
 	}

@@ -3,11 +3,12 @@ import React, { Component } from "react";
 
 import './Button.css';
 
-class Button extends React.Component {
+class Button extends Component {
 
   render() {
+	let className = `btn ${this.props.style}`;
     return (
-      <a className="btn" onClick={this.props.onClick}>
+      <a className={className} onClick={this.props.onClick}>
         {this.props.value}
       </a>
     );

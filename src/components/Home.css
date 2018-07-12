@@ -1,6 +1,14 @@
 
-body {
-  background: linear-gradient(#8e83ee, #a768f4);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+.home {
+	background: linear-gradient(#8e83ee, #a768f4);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+.home-instructions {
+	position: absolute;
+	padding: 1.5rem;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center
 }
