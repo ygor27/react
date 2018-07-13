@@ -16,20 +16,3 @@ function getByCNPJ(cnpj, callback) {
         callback(error.response.status)
     })
 }
-
-
-
-/*
-
-    const requestOptions = {
-        headers: {Authorizations: 'Bearer 23456789' },
-    };
-    return axios.get(`/base?id=222`, requestOptions).then(resp => {
-    	console.log(resp)
-    })
-    .catch(error => {
-        console.log(error.response.data)
-        callback()
-    })
-
-    */

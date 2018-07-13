@@ -1,4 +1,3 @@
-import { withRouter } from 'react-router-dom'
 import React, { Component } from "react";
 
 import './Button.css';
@@ -6,14 +5,14 @@ import './Button.css';
 class Button extends Component {
 
   render() {
-	let className = `btn ${this.props.style}`;
+	let className = `btn ${this.props.type}`;
     return (
       <a className={className} onClick={this.props.onClick}>
-        {this.props.value}
+        {this.props.text}
       </a>
     );
   }
 }
 
-export default withRouter(Button);
+export default Button;
 

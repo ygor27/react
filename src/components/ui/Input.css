@@ -1,47 +1,37 @@
-
-.btn {
-    display: block;
+.input-wrapper {
     position: relative;
-    font-weight: 400;
-    text-align: left;
-    white-space: nowrap;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: 1.5rem 4rem 1.5rem 1.5rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    font-weight: bold;
-    cursor: pointer;
-    transition: box-shadow 0.15s ease-in-out
 }
-.btn::after {
-    content: url('../../assets/images/right-arrow.svg');
+.input-wrapper label {
+    font-size: .7rem;
+    color: #9ca5ac;
+    position: absolute;
+    top: .5rem;
+    left: 1.5rem    
+}
+.input-wrapper input {
+    border: none;
+    width: calc(100% - 3rem);
+    display: block;
+    background: #FFF;
+    padding: 1.5rem 1.5rem;
+    font-size: 1.2rem;
+    transition: background 0.15s ease-in-out    
+}
+.input-wrapper input:focus {
+    outline: 0;
+    background: #c5c9cb
+}
+.input-wrapper input:focus + label {
+    color: #000;
+}
+.input-wrapper-validation {
+    background: url('../../assets/images/checked.svg');
     position: absolute;
     right: 1.5rem;
     top: 50%;
     margin-top: -10px;
     fill: red;
     display: block;
-    vertical-align: middle;
     width: 20px;
-    height: 20px;
-}
-
-.btn-default {
-    background: #FFF;
-    color: #9269f1
-}
-.btn:hover {
-    box-shadow: 2px 1px 5px rgba(0,0,0,.3)
-}
-.btn-primary {
-    background: #32cccc;
-    color: #fff;
-}
-.btn-primary::after {
-    content: url('../../assets/images/right-arrow-inverse.svg');
+    height: 20px;   
 }
