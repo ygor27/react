@@ -13,6 +13,9 @@ function getByCNPJ(cnpj, callback) {
     	callback(resp.status, resp.data)
     })
     .catch(error => {
+        if (error.response.status === 401) {
+
+        }
         callback(error.response.status)
     })
 }
