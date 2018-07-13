@@ -3,19 +3,22 @@
 }
 .cotacao-info {
 	background: linear-gradient(to right, #8e83ee, #a768f4);
-	padding: 1rem;
+	padding: 1rem 1.5rem;
 	overflow: hidden;
 }
 .cotacao-info-text {
 	float: left;
 	margin-left: 20px;
 }
+.cotacao-info-text small {
+	font-size: .7rem
+}
 .cotacao-info-icon {
 	float: left
 }
 .cotacao-info-user {
-	width: 25px;
-	height: 25px;
+	width: 30px;
+	height: 30px;
 	float: right;
 	border-radius: 50%;
 	overflow: hidden;
@@ -25,7 +28,7 @@
 	max-width: 100%
 }
 .step {
-	padding: 1rem;
+	padding: 1rem 1.5rem;
 	overflow: hidden;
 }
 .step-number {
@@ -56,15 +59,30 @@
 }
 .input-wrapper input {
 	border: none;
-	width: calc(100% - 2rem);
+	width: calc(100% - 3rem);
 	display: block;
 	background: #FFF;
-	padding: 1.5rem 1rem;
-	font-size: 1.2rem	
+	padding: 1.5rem 1.5rem;
+	font-size: 1.2rem;
+	transition: background 0.15s ease-in-out	
 }
 .input-wrapper input:focus {
     outline: 0;
     background: #c5c9cb
+}
+.input-wrapper input:focus + label {
+    color: #000;
+}
+.input-wrapper-validation {
+    background: url('../assets/images/checked.svg');
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    margin-top: -10px;
+    fill: red;
+    display: block;
+    width: 20px;
+    height: 20px;	
 }
 .page-action {
 	position: absolute;

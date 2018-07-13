@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import './Cotacao.css';
 import Button from "./ui/Button";
+import Input from "./ui/Input";
 import { validate } from "../helpers/validate";
 import { empresaService } from "../services/Empresa";
 import icone from '../assets/images/bar-chart.svg';
@@ -9,11 +10,17 @@ import icone from '../assets/images/bar-chart.svg';
 class Cotacao extends Component {
 
 	checkCNPJ = () => {
+        this.setState({empresa: null});
         if(validate.checkCNPJ(this.state.cnpj)) {
 		  this.setState({cnpjValid: true});
-          empresaService.getByCNPJ(this.state.cnpj).catch(error => {
-            console.log(error.response)
-          })
+          empresaService.getByCNPJ(this.state.cnpj, (status, data) => { 
+            if(status === 200) {
+                this.setState({empresa: data});
+            }
+            if(status === 404) {
+                window.alert('Empresa nao localizada');
+            }
+        })
         } else {
             
         }
@@ -23,6 +30,7 @@ class Cotacao extends Component {
         super(props);
         this.state = {
           cnpj: '',
+          empresa: null,
           cnpjValid: false
         };
         this.handleChange = this.handleChange.bind(this);
@@ -48,10 +56,7 @@ class Cotacao extends Component {
     		<span className="step-number">1</span>
     		<h4 className="step-title">Buscar por CNPJ ou empresa</h4>
     	</div>
-        <div className="input-wrapper">
-        	<label className="input-wrapper">CNPJ/Empresa</label>
-        	<input type="text" className={this.state.cnpjValid && this.state.cnpj ? 'valido' : ''} value={this.state.cnpj} onBlur={this.checkCNPJ} onChange={this.handleChange} />
-        </div>
+        <Input onBlur={this.checkCNPJ} onChange={this.handleChange} label="CNPJ/Empresa" name="cnpj" valid={this.state.empresa} value={this.state.cnpj} />
         <div className="page-action">
             <Button value="Texto" style="btn-primary" onClick={this.handleClick} />
         </div>
